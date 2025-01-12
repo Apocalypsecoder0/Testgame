@@ -1,3 +1,13 @@
+
+CREATE TABLE bug_reports (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NULL, -- Assuming you have a users table
+    error_message TEXT NOT NULL,
+    error_file VARCHAR(255) NOT NULL,
+    error_line INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('open', 'resolved') DEFAULT 'open'
+);
 CREATE TABLE armory (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
