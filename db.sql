@@ -21,3 +21,12 @@ CREATE TABLE alliance_members (
     FOREIGN KEY (user_id) REFERENCES users(id),
     UNIQUE (alliance_id, user_id)  -- Prevent duplicate memberships
 );
+CREATE TABLE players (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    health INT NOT NULL DEFAULT 100,
+    attack_power INT NOT NULL DEFAULT 10,
+    defense INT NOT NULL DEFAULT 5,
+    experience INT NOT NULL DEFAULT 0,
+    level INT NOT NULL DEFAULT 1
+);
