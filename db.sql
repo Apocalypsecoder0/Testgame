@@ -134,4 +134,30 @@ INSERT INTO technologies (name, description, prerequisites) VALUES
 ('Advanced Farming', 'Unlocks advanced farming techniques.', '1'),  -- Prerequisite: Basic Farming
 ('Basic Mining', 'Unlocks basic mining techniques.', ''),
 ('Advanced Mining', 'Unlocks advanced mining techniques.', '3');  -- Prerequisite: Basic Mining
+CREATE TABLE troop_types (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    cost INT NOT NULL,  -- Cost in resources
+    training_time INT NOT NULL  -- Training time in seconds
+);
 
+CREATE TABLE training_queue (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    troop_type_id INT NOT NULL,
+    quantity INT NOT NULL,
+    start_time DATETIME,
+    status ENUM('in_progress', 'completed') DEFAULT 'in_progress',
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (troop_type_id) REFERENCES troop_types(id)
+);
+
+CREATE TABLE player_resources (
+    user_id INT PRIMARY KEY,
+    resources INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+INSERT INTO troop_types (name, cost, training_time) VALUES
+('Infantry', 50, 30),  -- 50 resources, 30 seconds training time
+('Archers', 70, 45),   -- 70 resources, 45 seconds training time
+('Cavalry', 100, 60);  -- 100 resources, 60 seconds training time
