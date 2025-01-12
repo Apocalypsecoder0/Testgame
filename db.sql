@@ -87,3 +87,8 @@ CREATE TABLE trades (
     FOREIGN KEY (seller_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES items(id)
 );
+INSERT INTO items (name, price) VALUES
+('Wood', 10),
+('Stone', 15),
+('Iron', 25),
+('Gold', 50);
