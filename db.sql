@@ -172,4 +172,7 @@ INSERT INTO game_updates (title, content) VALUES
 ('New Event: Winter Festival', 'Join us for the Winter Festival event starting next week! Earn exclusive rewards!'),
 ('Bug Fixes', 'We have fixed several bugs reported by players. Thank you for your feedback!');
 
+ALTER TABLE users ADD COLUMN reset_token VARCHAR(255) DEFAULT NULL;
+ALTER TABLE users ADD COLUMN token_expires DATETIME DEFAULT NULL;
+
 
