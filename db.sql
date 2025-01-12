@@ -44,3 +44,7 @@ CREATE TABLE upgrades (
     cost INT NOT NULL,
     resource_increase INT NOT NULL
 );
+INSERT INTO upgrades (level, cost, resource_increase) VALUES
+(1, 50, 20),
+(2, 100, 50),
+(3, 200, 100);
