@@ -113,3 +113,25 @@ INSERT INTO research_projects (name, cost, duration, description) VALUES
 ('Basic Farming', 100, 60, 'Unlocks basic farming techniques.'),
 ('Advanced Mining', 200, 120, 'Unlocks advanced mining techniques.'),
 ('Weapon Upgrades', 300, 180, 'Unlocks upgrades for weapons.');
+
+CREATE TABLE technologies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    prerequisites TEXT,  -- Comma-separated list of technology IDs
+    is_unlocked BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE player_technologies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    technology_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (technology_id) REFERENCES technologies(id)
+);
+INSERT INTO technologies (name, description, prerequisites) VALUES
+('Basic Farming', 'Unlocks basic farming techniques.', ''),
+('Advanced Farming', 'Unlocks advanced farming techniques.', '1'),  -- Prerequisite: Basic Farming
+('Basic Mining', 'Unlocks basic mining techniques.', ''),
+('Advanced Mining', 'Unlocks advanced mining techniques.', '3');  -- Prerequisite: Basic Mining
+
