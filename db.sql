@@ -30,3 +30,17 @@ CREATE TABLE players (
     experience INT NOT NULL DEFAULT 0,
     level INT NOT NULL DEFAULT 1
 );
+CREATE TABLE command_centers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    level INT NOT NULL DEFAULT 1,
+    resources INT NOT NULL DEFAULT 100,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE upgrades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    level INT NOT NULL,
+    cost INT NOT NULL,
+    resource_increase INT NOT NULL
+);
