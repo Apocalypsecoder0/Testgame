@@ -161,3 +161,15 @@ INSERT INTO troop_types (name, cost, training_time) VALUES
 ('Infantry', 50, 30),  -- 50 resources, 30 seconds training time
 ('Archers', 70, 45),   -- 70 resources, 45 seconds training time
 ('Cavalry', 100, 60);  -- 100 resources, 60 seconds training time
+CREATE TABLE game_updates (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO game_updates (title, content) VALUES
+('Version 1.1 Released', 'We are excited to announce the release of version 1.1, which includes new features and bug fixes.'),
+('New Event: Winter Festival', 'Join us for the Winter Festival event starting next week! Earn exclusive rewards!'),
+('Bug Fixes', 'We have fixed several bugs reported by players. Thank you for your feedback!');
+
+
