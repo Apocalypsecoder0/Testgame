@@ -42,7 +42,38 @@ if ($user) {
     }
 }
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Forgot Password</h1>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Reset Link</button>
+        </form>
+        <div id="message" class="mt-3"></div>
+    </div>
+    <script>
+        // Example of client-side validation
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const emailInput = document.querySelector('input[name="email"]');
+            if (!emailInput.value) {
+                event.preventDefault();
+                document.getElementById('message').innerText = "Please enter your email.";
+            }
+        });
+    </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
