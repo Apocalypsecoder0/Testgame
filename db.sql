@@ -92,3 +92,24 @@ INSERT INTO items (name, price) VALUES
 ('Stone', 15),
 ('Iron', 25),
 ('Gold', 50);
+CREATE TABLE research_projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    cost INT NOT NULL,
+    duration INT NOT NULL,  -- Duration in seconds
+    description TEXT
+);
+
+CREATE TABLE player_research (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    project_id INT NOT NULL,
+    start_time DATETIME,
+    status ENUM('in_progress', 'completed') DEFAULT 'in_progress',
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (project_id) REFERENCES research_projects(id)
+);
+INSERT INTO research_projects (name, cost, duration, description) VALUES
+('Basic Farming', 100, 60, 'Unlocks basic farming techniques.'),
+('Advanced Mining', 200, 120, 'Unlocks advanced mining techniques.'),
+('Weapon Upgrades', 300, 180, 'Unlocks upgrades for weapons.');
