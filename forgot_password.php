@@ -18,7 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Store the token and expiration in the database
         $stmt = $pdo->prepare("UPDATE users SET reset_token = ?, token_expires = ? WHERE email = ?");
         $stmt->execute([$token, $expires, $email]);
-
+// In forgot_password.php
+if ($user) {
+    // Log successful attempt
+    $stmt = $pdo->prepare("INSERT INTO password_reset_logs (email, status) VALUES (?, 'success')");
+    $stmt->execute([$email]);
+    // ... (rest of the code)
+} else {
+    // Log failed attempt
+    $stmt = $pdo->prepare("INSERT INTO password_reset_logs (email, status) VALUES (?, 'failure')");
+    $stmt->execute([$email]);
+    echo "No user found with that email address.";
+}
         // Send email with reset link
         $resetLink = "http://yourdomain.com/reset_password.php?token=" . $token;
         $subject = "Password Reset Request";
