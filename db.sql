@@ -48,3 +48,15 @@ INSERT INTO upgrades (level, cost, resource_increase) VALUES
 (1, 50, 20),
 (2, 100, 50),
 (3, 200, 100);
+CREATE TABLE intelligence_reports (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    report_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    report_content TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+INSERT INTO intelligence_reports (user_id, report_content) VALUES
+(1, 'Enemy forces spotted near the northern border.'),
+(1, 'Resource production has increased by 20%.'),
+(2, 'New technology discovered: Advanced Weaponry.'),
+(1, 'Scout reports indicate a weak point in enemy defenses.');
