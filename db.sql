@@ -175,4 +175,9 @@ INSERT INTO game_updates (title, content) VALUES
 ALTER TABLE users ADD COLUMN reset_token VARCHAR(255) DEFAULT NULL;
 ALTER TABLE users ADD COLUMN token_expires DATETIME DEFAULT NULL;
 
-
+CREATE TABLE password_reset_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    attempt_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('success', 'failure') NOT NULL
+);
