@@ -60,3 +60,30 @@ INSERT INTO intelligence_reports (user_id, report_content) VALUES
 (1, 'Resource production has increased by 20%.'),
 (2, 'New technology discovered: Advanced Weaponry.'),
 (1, 'Scout reports indicate a weak point in enemy defenses.');
+
+CREATE TABLE items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price INT NOT NULL
+);
+
+CREATE TABLE player_inventory (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    item_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (item_id) REFERENCES items(id)
+);
+
+CREATE TABLE trades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    buyer_id INT NOT NULL,
+    seller_id INT NOT NULL,
+    item_id INT NOT NULL,
+    quantity INT NOT NULL,
+    trade_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (buyer_id) REFERENCES users(id),
+    FOREIGN KEY (seller_id) REFERENCES users(id),
+    FOREIGN KEY (item_id) REFERENCES items(id)
+);
