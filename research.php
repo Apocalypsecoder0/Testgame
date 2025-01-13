@@ -117,4 +117,9 @@ foreach ($ongoing_research as $research) {
 ?>
 
 <h1>Research</h1>
-<p>Research new technologies here.</p>
+<p>Research new technologies here.
+
+Basic Research	Energy Technology • Laser Technology • Ion Technology • Hyperspace Technology • Plasma Technology
+Drive Research	Combustion Drive • Impulse Drive • Hyperspace Drive
+Advanced Research	Espionage Technology • Computer Technology • Astrophysics • Intergalactic Research Network • Graviton Technology
+Combat Research	Weapons Technology • Shielding Technology • Armour Technology</p>
