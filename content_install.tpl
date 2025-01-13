@@ -1,5 +1,5 @@
 <div id="rightmenu" class="rightmenu_big">
-    <div id="title">Установка Мастер-базы</div>
+<div id="title">Installing the Master Base</div>
     <div id="content">
         <div id="contentscroll" align="justify">
 
