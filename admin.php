@@ -6,6 +6,10 @@ include 'db.php'; // Include database connection
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.php"); // Redirect to login if not logged in or not an admin
     exit();
+}// In admin.php
+if (!hasPermission('manage_users')) {
+    echo "Access denied.";
+    exit();
 }
 
 // Fetch all users from the database
