@@ -1,4 +1,29 @@
+CREATE DATABASE db;
 
+USE db;
+
+CREATE TABLE galaxies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE systems (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    galaxy_id INT,
+    name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (galaxy_id) REFERENCES galaxies(id)
+);
+
+CREATE TABLE planets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    system_id INT,
+    name VARCHAR(255) NOT NULL,
+    metal INT NOT NULL,
+    crystal INT NOT NULL,
+    deuterium INT NOT NULL,
+    status ENUM('Unoccupied', 'Occupied', 'Under Attack') NOT NULL,
+    FOREIGN KEY (system_id) REFERENCES systems(id)
+);
 CREATE TABLE bug_reports (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NULL, -- Assuming you have a users table
