@@ -1,6 +1,11 @@
 <?php
 session_start();
 include 'db.php'; // Include database connection
+// In update_profile.php
+if (!hasPermission('update_profile')) {
+    echo "Access denied.";
+    exit();
+}
 // In profile.php
 if (hasPermission('update_profile')) {
     echo '<a href="update_profile.php">Update Profile</a>';
