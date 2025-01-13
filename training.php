@@ -8,10 +8,50 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Logic to train troops
+    
 
-    <?php
-session_start();
-include 'db.php';
+class Troop {
+    public $name;
+    public $experience;
+
+    public function __construct($name) {
+        $this->name = $name;
+        $this->experience = 0; // Initial experience
+    }
+
+    public function train($hours) {
+        $this->experience += $hours * 10; // Gain experience based on training hours
+        echo "{$this->name} trained for {$hours} hours and gained " . ($hours * 10) . " experience points.\n";
+    }
+}
+
+class TrainingCamp {
+    private $troops = [];
+
+    public function addTroop($troop) {
+        $this->troops[] = $troop;
+    }
+
+    public function conductTraining($hours) {
+        foreach ($this->troops as $troop) {
+            $troop->train($hours);
+        }
+    }
+
+    public function showTroopExperience() {
+        foreach ($this->troops as $troop) {
+            echo "{$troop->name} has {$troop->experience} experience points.\n";
+        }
+    }
+}
+
+// Example usage
+$camp = new TrainingCamp();
+$camp->addTroop(new Troop("Alpha"));
+$camp->addTroop(new Troop("Bravo"));
+
+$camp->conductTraining(5); // Train for 5 hours
+$camp->showTroopExperience();
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
