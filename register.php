@@ -81,7 +81,7 @@ $stmt->execute(['username' => $username, 'password' => $password, 'race' => $rac
         <select id="race" name="race" required>
             <option value="Human">Human</option>
             <option value="Alien">Alien</option>
-            <option value="Robot">Robot</option>
+            <option value="Android">Android</option>
             <option value="Wraith">Wraith</option>
         </select><br><br>
 
