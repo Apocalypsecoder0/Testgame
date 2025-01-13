@@ -1,7 +1,11 @@
 <?php
 session_start();
 include 'db.php'; // Include database connection
-
+// In update_profile.php
+if (!hasPermission('update_profile')) {
+    echo "Access denied.";
+    exit();
+}
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php"); // Redirect to login if not logged in
