@@ -44,6 +44,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     ALTER TABLE users ADD COLUMN email VARCHAR(255) NOT NULL;
 ALTER TABLE users ADD COLUMN abilities TEXT NOT NULL;
+ALTER TABLE users ADD COLUMN role ENUM('user', 'admin', 'moderator') DEFAULT 'user';
     race VARCHAR(255) NOT NULL
 );
 CREATE TABLE armory (
