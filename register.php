@@ -23,21 +23,41 @@ mail($email, $subject, $message);
     } else {
         echo "Registration failed!";
     }
-}// Check if the form is submitted
+}/<?php
+
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
     $race = $_POST['race'];
+    $email = $_POST['email'];
+
+    // Define race-specific abilities
+    $abilities = '';
+    switch ($race) {
+        case 'Human':
+            $abilities = 'Adaptability, Diplomacy';
+            break;
+        case 'Alien':
+            $abilities = 'Telepathy, Advanced Technology';
+            break;
+        case 'Robot':
+            $abilities = 'Strength, Precision';
+            break;
+        case 'Wraith':
+            $abilities = 'Regeneration, Stealth';
+            break;
+    }
 
     // Insert user into the database
-    $stmt = $pdo->prepare("INSERT INTO users (username, password, race) VALUES (:username, :password, :race)");
-    $stmt->execute(['username' => $username, 'password' => $password, 'race' => $race]);
+    $stmt = $pdo->prepare("INSERT INTO users (username, password, race, email, abilities) VALUES (:username, :password, :race, :email, :abilities)");
+    $stmt->execute(['username' => $username, 'password' => $password, 'race' => $race, 'email' => $email, 'abilities' => $abilities]);
 
     echo "Registration successful! Welcome, " . htmlspecialchars($username) . "!";
 }
 ?>
-<?>
-!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -49,6 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST" action="">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
@@ -64,6 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Register">
     </form>
 </body>
+</html>
 </html>
 <form method="POST">
     <input type="text" name="username" placeholder="Username" required>
