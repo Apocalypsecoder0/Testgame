@@ -38,6 +38,12 @@ CREATE TABLE bug_reports (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     status ENUM('open', 'resolved') DEFAULT 'open'
 );
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    race VARCHAR(255) NOT NULL
+);
 CREATE TABLE armory (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
