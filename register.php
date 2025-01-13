@@ -50,10 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert user into the database
-    $stmt = $pdo->prepare("INSERT INTO users (username, password, race, email, abilities, role) VALUES (:username, :password, :race, :email, :abilities, :role)");
-    $stmt->execute(['username' => $username, 'password' => $password, 'race' => $race, 'email' => $email, 'abilities' => $abilities, 'role' => $role]);
-
-
+// In register.php, after inserting the user
+$role_id = 3; // Default role_id for 'user'
+$stmt = $pdo->prepare("INSERT INTO users (username, password, race, email, abilities, role_id) VALUES (:username, :password, :race, :email, :abilities, :role_id)");
+$stmt->execute(['username' => $username, 'password' => $password, 'race' => $race, 'email' => $email, 'abilities' => $abilities, 'role_id' => $role_id]);
     echo "Registration successful! Welcome, " . htmlspecialchars($username) . "!";
 }
 ?>
