@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         case 'Alien':
             $abilities = 'Telepathy, Advanced Technology';
             break;
-        case 'Robot':
+        case 'Androids':
             $abilities = 'Strength, Precision';
             break;
         case 'Wraith':
