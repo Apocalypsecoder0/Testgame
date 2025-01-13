@@ -24,6 +24,45 @@ class Building {
                 $this->buildTime = 40 * $this->level; // in seconds
                 break;
             // Add more buildings as needed
+            case 'Quantum Reactor'
+            $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+            case 'Stellar Forge':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+            case 'Galactic Observatory':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+'Warp Drive Facility':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+'Terraforming Station';
+            $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+'Defense Matrix':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+'Resource Synthesizer':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+'Cryo Storage':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+'Interstellar Dock':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
+            break;
+'Nano Assembly Plant':
+    $this->cost = ['metal' => 48 * $this->level, 'crystal' => 24 * $this->level];
+                $this->buildTime = 40 * $this->level; // in seconds
             default:
                 throw new Exception("Building type not recognized.");
         }
