@@ -1,6 +1,6 @@
-CREATE DATABASE db;
+CREATE DATABASE game_db;
 
-USE db;
+USE game_db;
 -- Create the necessary tables for the game database
 
 CREATE DATABASE IF NOT EXISTS game_db;
