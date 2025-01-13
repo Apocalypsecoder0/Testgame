@@ -4,9 +4,7 @@
 $LocaLang = "en";
 
 $LOCA = array ();
-
-// Вернуть значение ключа. Возвращается последняя версия.
-// Если такого ключа не существует, вернуть название ключа.
+//
 function loca ($key)
 {
     global $LOCA, $LocaLang;
@@ -15,7 +13,7 @@ function loca ($key)
     else return "$key";
 }
 
-// Добавить новую версию ключа.
+//
 function loca_add ($key, $value)
 {
     global $LOCA, $LocaLang;
