@@ -33,7 +33,23 @@ $_SESSION['role'] = $role['role_name'];
     }
 }
 ?>
+function hasPermission($permission) {
+    global $pdo;
+    $user_id = $_SESSION['user_id'];
 
+    // Get the user's role_id
+    $stmt = $pdo->prepare("SELECT role_id FROM users WHERE id = :id");
+    $stmt->execute(['id' => $user_id]);
+    $role_id = $stmt->fetchColumn();
+
+    // Check if the role has the permission
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM role_permissions rp 
+                            JOIN permissions p ON rp.permission_id = p.id 
+                            WHERE rp.role_id = :role_id AND p.name = :permission");
+    $stmt->execute(['role_id' => $role_id, 'permission' => $permission]);
+    
+    return $stmt->fetchColumn() > 0;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
