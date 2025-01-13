@@ -101,4 +101,67 @@ $metalMine->upgrade();
 echo "Upgraded Level: " . $metalMine->getLevel() . "\n";
 echo "New Cost: " . json_encode($metalMine->getCost()) . "\n";
 echo "New Build Time: " . $metalMine->getBuildTime() . " seconds\n";
+
+```php
+$quantumReactor = new Building('Quantum Reactor');
+echo "Building: " . $quantumReactor->getName() . "\n";
+echo "Level: " . $quantumReactor->getLevel() . "\n";
+echo "Cost: " . json_encode($quantumReactor->getCost()) . "\n";
+echo "Build Time: " . $quantumReactor->getBuildTime() . " seconds\n";
+
+$stellarForge = new Building('Stellar Forge');
+echo "Building: " . $stellarForge->getName() . "\n";
+echo "Level: " . $stellarForge->getLevel() . "\n";
+echo "Cost: " . json_encode($stellarForge->getCost()) . "\n";
+echo "Build Time: " . $stellarForge->getBuildTime() . " seconds\n";
+
+$galacticObservatory = new Building('Galactic Observatory');
+echo "Building: " . $galacticObservatory->getName() . "\n";
+echo "Level: " . $galacticObservatory->getLevel() . "\n";
+echo "Cost: " . json_encode($galacticObservatory->getCost()) . "\n";
+echo "Build Time: " . $galacticObservatory->getBuildTime() . " seconds\n";
+
+$warpDriveFacility = new Building('Warp Drive Facility');
+echo "Building: " . $warpDriveFacility->getName() . "\n";
+echo "Level: " . $warpDriveFacility->getLevel() . "\n";
+echo "Cost: " . json_encode($warpDriveFacility->getCost()) . "\n";
+echo "Build Time: " . $warpDriveFacility->getBuildTime() . " seconds\n";
+
+$terraformingStation = new Building('Terraforming Station');
+echo "Building: " . $terraformingStation->getName() . "\n";
+echo "Level: " . $terraformingStation->getLevel() . "\n";
+echo "Cost: " . json_encode($terraformingStation->getCost()) . "\n";
+echo "Build Time: " . $terraformingStation->getBuildTime() . " seconds\n";
+
+$defenseMatrix = new Building('Defense Matrix');
+echo "Building: " . $defenseMatrix->getName() . "\n";
+echo "Level: " . $defenseMatrix->getLevel() . "\n";
+echo "Cost: " . json_encode($defenseMatrix->getCost()) . "\n";
+echo "Build Time: " . $defenseMatrix->getBuildTime() . " seconds\n";
+
+$resourceSynthesizer = new Building('Resource Synthesizer');
+echo "Building: " . $resourceSynthesizer->getName() . "\n";
+echo "Level: " . $resourceSynthesizer->getLevel() . "\n";
+echo "Cost: " . json_encode($resourceSynthesizer->getCost()) . "\n";
+echo "Build Time: " . $resourceSynthesizer->getBuildTime() . " seconds\n";
+
+$cryoStorage = new Building('Cryo Storage');
+echo "Building: " . $cryoStorage->getName() . "\n";
+echo "Level: " . $cryoStorage->getLevel() . "\n";
+echo "Cost: " . json_encode($cryoStorage->getCost()) . "\n";
+echo "Build Time: " . $cryoStorage->getBuildTime() . " seconds\n";
+
+$interstellarDock = new Building('Interstellar Dock');
+echo "Building: " . $interstellarDock->getName() . "\n";
+echo "Level: " . $interstellarDock->getLevel() . "\n";
+echo "Cost: " . json_encode($interstellarDock->getCost()) . "\n";
+echo "Build Time: " . $interstellarDock->getBuildTime() . " seconds\n";
+
+$nanoAssemblyPlant = new Building('Nano Assembly Plant');
+echo "Building: " . $nanoAssemblyPlant->getName() . "\n";
+echo "Level: " . $nanoAssemblyPlant->getLevel() . "\n";
+echo "Cost: " . json_encode($nanoAssemblyPlant->getCost()) . "\n";
+echo "Build Time: " . $nanoAssemblyPlant->getBuildTime() . " seconds\n";
+?>
+```
 ?>
