@@ -1,5 +1,6 @@
 <?php
 // patch.php
+//php patch.php path/to/your/file.txt "New Content"
 
 // Function to apply a patch
 function applyPatch($filePath, $patchContent) {
