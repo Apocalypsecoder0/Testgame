@@ -47,6 +47,43 @@ ALTER TABLE users ADD COLUMN abilities TEXT NOT NULL;
 ALTER TABLE users ADD COLUMN role ENUM('user', 'admin', 'moderator') DEFAULT 'user';
     race VARCHAR(255) NOT NULL
 );
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE permissions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) UNIQUE NOT NULL
+);
+-- Insert roles
+INSERT INTO roles (name) VALUES ('admin'), ('moderator'), ('user');
+
+-- Insert permissions
+INSERT INTO permissions (name) VALUES 
+('manage_users'), 
+('manage_content'), 
+('view_profile'), 
+('update_profile');
+
+-- Assign permissions to roles
+INSERT INTO role_permissions (role_id, permission_id) VALUES 
+(1, 1), -- Admin can manage users
+(1, 2), -- Admin can manage content
+(1, 3), -- Admin can view profiles
+(1, 4), -- Admin can update profiles
+(2, 2), -- Moderator can manage content
+(2, 3), -- Moderator can view profiles
+(3, 3), -- User can view their own profile
+(3, 4); -- User can update their own profile
+
+CREATE TABLE role_permissions (
+    role_id INT,
+    permission_id INT,
+    PRIMARY KEY (role_id, permission_id),
+    FOREIGN KEY (role_id) REFERENCES roles(id),
+    FOREIGN KEY (permission_id) REFERENCES permissions(id)
+);
 CREATE TABLE armory (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
