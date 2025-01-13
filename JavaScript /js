@@ -1,4 +1,25 @@
 // script.js
 $(document).ready(function() {
     // Your JavaScript code here
+
+    function updateContent(title, content) {
+    document.getElementById('main-content').innerHTML = `
+        <h2>${title}</h2>
+        <p>${content}</p>
+    `;
+}
+
+document.getElementById('resources').addEventListener('click', function(event) {
+    event.preventDefault();
+    updateContent('Resources', 'Here you can manage your resources.');
+});
+
+document.getElementById('fleet').addEventListener('click', function(event) {
+    event.preventDefault();
+    updateContent('Fleet', 'Manage your fleet here.');
+});
+
+document.getElementById('research').addEventListener('click', function(event) {
+    event.preventDefault();
+    updateContent('Research', 'Conduct research to advance your technology.');
 });
