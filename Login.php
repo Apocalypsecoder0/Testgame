@@ -1,27 +1,48 @@
 <?php
 session_start();
-include 'db.php';
+include 'db.php'; // Include database connection
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
-    $stmt->execute([$username]);
-    $user = $stmt->fetch();
+    // Fetch user from the database
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+    $stmt->execute(['username' => $username]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Verify password
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
-        header("Location: index.php");
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['race'] = $user['race'];
+        $_SESSION['abilities'] = $user['abilities'];
+        header("Location: profile.php"); // Redirect to profile page
         exit();
     } else {
-        echo "Invalid credentials!";
+        echo "Invalid username or password.";
     }
 }
 ?>
 
-<form method="POST">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="POST" action="">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
