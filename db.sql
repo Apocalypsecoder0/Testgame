@@ -336,7 +336,28 @@ CREATE TABLE IF NOT EXISTS armory (
     cash_cost DECIMAL(10, 2),
     isDefense BOOLEAN
 );
+CREATE TABLE troops (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    experience INT DEFAULT 0
+);
+SET @training_hours = 5;
 
+UPDATE troops
+SET experience = experience + (@training_hours * 10)
+WHERE id IN (SELECT troop_id FROM training_sessions WHERE hours = @training_hours);
+
+INSERT INTO training_sessions (troop_id, hours, experience_gained)
+SELECT id, @training_hours, (@training_hours * 10) FROM troops;
+CREATE TABLE training_sessions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    troop_id INT,
+    hours INT,
+    experience_gained INT,
+    FOREIGN KEY (troop_id) REFERENCES troops(id)
+);
+INSERT INTO troops (name) VALUES ('Alpha'), ('Bravo');
+SELECT name, experience FROM troops;
 -- Bank table
 CREATE TABLE IF NOT EXISTS bank (
     uid INT PRIMARY KEY,
