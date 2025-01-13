@@ -315,7 +315,14 @@ CREATE TABLE training_queue (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (troop_type_id) REFERENCES troop_types(id)
 );
-
+CREATE TABLE fleets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    player_id INT,
+    ship_type VARCHAR(50),
+    quantity INT,
+    attack_power INT,
+    defense_points INT
+);
 CREATE TABLE player_resources (
     user_id INT PRIMARY KEY,
     resources INT NOT NULL,
