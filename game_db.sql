@@ -6,6 +6,14 @@ USE game_db;
 CREATE DATABASE IF NOT EXISTS game_db;
 USE game_db;
 
+UPDATE users SET name = ?, bio = ? WHERE user_id = ?;
+
+SELECT * FROM users WHERE username = ? OR email = ?;
+UPDATE users SET username = ?, email = ?, password = ? WHERE user_id = ?;
+UPDATE users SET email_notifications = ?, sms_notifications = ? WHERE user_id = ?;
+UPDATE users SET profile_visibility = ?, data_sharing = ? WHERE user_id = ?;
+UPDATE users SET password = ? WHERE user_id = ?;
+
 CREATE TABLE universes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL
