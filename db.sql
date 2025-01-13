@@ -430,3 +430,22 @@ CREATE TABLE IF NOT EXISTS alliances (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(uid) ON DELETE CASCADE
 );
+CREATE TABLE buildings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    level INT NOT NULL,
+    cost JSON NOT NULL,
+    build_time INT NOT NULL
+);
+
+INSERT INTO buildings (name, level, cost, build_time) VALUES
+('Quantum Reactor', 1, '{"resource": 1000, "energy": 500}', 60),
+('Stellar Forge', 1, '{"resource": 1500, "energy": 700}', 120),
+('Galactic Observatory', 1, '{"resource": 2000, "energy": 900}', 180),
+('Warp Drive Facility', 1, '{"resource": 2500, "energy": 1100}', 240),
+('Terraforming Station', 1, '{"resource": 3000, "energy": 1300}', 300),
+('Defense Matrix', 1, '{"resource": 3500, "energy": 1500}', 360),
+('Resource Synthesizer', 1, '{"resource": 4000, "energy": 1700}', 420),
+('Cryo Storage', 1, '{"resource": 4500, "energy": 1900}', 480),
+('Interstellar Dock', 1, '{"resource": 5000, "energy": 2100}', 540),
+('Nano Assembly Plant', 1, '{"resource": 5500, "energy": 2300}', 600);
