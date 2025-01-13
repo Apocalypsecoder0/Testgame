@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $user['username'];
         $_SESSION['race'] = $user['race'];
         $_SESSION['abilities'] = $user['abilities'];
+        $_SESSION['role'] = $user['role']; // Store user role in session
         header("Location: profile.php"); // Redirect to profile page
         exit();
     } else {
