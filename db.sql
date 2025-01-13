@@ -111,6 +111,20 @@ CREATE TABLE alliance_members (
     FOREIGN KEY (user_id) REFERENCES users(id),
     UNIQUE (alliance_id, user_id)  -- Prevent duplicate memberships
 );
+CREATE TABLE guilds (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    leader_id INT NOT NULL,
+    FOREIGN KEY (leader_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE guild_members (
+    guild_id INT NOT NULL,
+    member_id INT NOT NULL,
+    PRIMARY KEY (guild_id, member_id),
+    FOREIGN KEY (guild_id) REFERENCES guilds(id) ON DELETE CASCADE,
+    FOREIGN KEY (member_id) REFERENCES users(id) ON DELETE CASCADE
+);
 CREATE TABLE players (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
