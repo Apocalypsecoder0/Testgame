@@ -96,6 +96,17 @@ CREATE TABLE armory (
     quantity INT NOT NULL DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+CREATE TABLE party_members (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    party_id INT,
+    FOREIGN KEY (party_id) REFERENCES parties(id)
+);
+INSERT INTO party_members (name, party_id) VALUES ('John Doe', 1);
+CREATE TABLE parties (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
 CREATE TABLE alliances (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
