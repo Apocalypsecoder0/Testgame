@@ -19,6 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['race'] = $user['race'];
         $_SESSION['abilities'] = $user['abilities'];
         $_SESSION['role'] = $user['role']; // Store user role in session
+        // In login.php, after verifying the password
+$stmt = $pdo->prepare("SELECT r.name AS role_name FROM users u JOIN roles r ON u.role_id = r.id WHERE u.id = :id");
+$stmt->execute(['id' => $user['id']]);
+$role = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Store role in session
+$_SESSION['role'] = $role['role_name'];
         header("Location: profile.php"); // Redirect to profile page
         exit();
     } else {
