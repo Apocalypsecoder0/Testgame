@@ -50,8 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert user into the database
-    $stmt = $pdo->prepare("INSERT INTO users (username, password, race, email, abilities) VALUES (:username, :password, :race, :email, :abilities)");
-    $stmt->execute(['username' => $username, 'password' => $password, 'race' => $race, 'email' => $email, 'abilities' => $abilities]);
+    $stmt = $pdo->prepare("INSERT INTO users (username, password, race, email, abilities, role) VALUES (:username, :password, :race, :email, :abilities, :role)");
+    $stmt->execute(['username' => $username, 'password' => $password, 'race' => $race, 'email' => $email, 'abilities' => $abilities, 'role' => $role]);
+
 
     echo "Registration successful! Welcome, " . htmlspecialchars($username) . "!";
 }
