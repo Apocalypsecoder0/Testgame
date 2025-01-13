@@ -19,8 +19,8 @@ include('header.php');
 
 <h2>Our Contact Information</h2>
 <p>Email: info@example.com</p>
-<p>Phone: (123) 456-7890</p>
-<p>Address: 123 Main St, Anytown, USA</p>
+<p>Phone: none</p>
+<p>Address: github</p>
 
 <div class="map">
     <h3>Find Us Here</h3>
