@@ -28,7 +28,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
     <p><strong>Race:</strong> <?php echo htmlspecialchars($user['race']); ?></p>
     <p><strong>Abilities:</strong> <?php echo htmlspecialchars($user['abilities']); ?></p>
-
+  <p><strong>Role:</strong> <?php echo htmlspecialchars($user['role']); ?></p> <!-- Display user role -->
     <a href="logout.php">Logout</a>
 </body>
 </html>
