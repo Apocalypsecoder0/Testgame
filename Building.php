@@ -102,7 +102,7 @@ echo "Upgraded Level: " . $metalMine->getLevel() . "\n";
 echo "New Cost: " . json_encode($metalMine->getCost()) . "\n";
 echo "New Build Time: " . $metalMine->getBuildTime() . " seconds\n";
 
-```php
+
 $quantumReactor = new Building('Quantum Reactor');
 echo "Building: " . $quantumReactor->getName() . "\n";
 echo "Level: " . $quantumReactor->getLevel() . "\n";
@@ -162,6 +162,37 @@ echo "Building: " . $nanoAssemblyPlant->getName() . "\n";
 echo "Level: " . $nanoAssemblyPlant->getLevel() . "\n";
 echo "Cost: " . json_encode($nanoAssemblyPlant->getCost()) . "\n";
 echo "Build Time: " . $nanoAssemblyPlant->getBuildTime() . " seconds\n";
-?>
-```
+
+
+    
+echo "Upgraded Level: " ();
+    $Quantum Reactor->getLevel() . "\n";
+echo "New Cost: " . json_encode($Quantum Reactor->getCost()) . "\n";
+echo "New Build Time: " . $Quantum Reactor->getBuildTime() . " seconds\n";
+
+echo "Upgraded Level: " ();
+    $Stellar Forge->getLevel() . "\n";
+echo "New Cost: " . json_encode($Stellar Forge->getCost()) . "\n";
+echo "New Build Time: " . $Stellar Forge->getBuildTime() . " seconds\n";
+
+echo "Upgraded Level: " ();
+    $Galactic Observatory->getLevel() . "\n";
+echo "New Cost: " . json_encode($Galactic Observatory->getCost()) . "\n";
+echo "New Build Time: " . $Galactic Observatory->getBuildTime() . " seconds\n";
+
+echo "Upgraded Level: " ();
+    $Warp Drive Facility->getLevel() . "\n";
+echo "New Cost: " . json_encode($Warp Drive Facility->getCost()) . "\n";
+echo "New Build Time: " . $Warp Drive Facility->getBuildTime() . " seconds\n";
+
+echo "Upgraded Level: " ();
+    $Warp Drive Facility->getLevel() . "\n";
+echo "New Cost: " . json_encode($Warp Drive Facility->getCost()) . "\n";
+echo "New Build Time: " . $Warp Drive Facility->getBuildTime() . " seconds\n";
+
+echo "Upgraded Level: " ();
+    $Warp Drive Facility->getLevel() . "\n";
+echo "New Cost: " . json_encode($Warp Drive Facility->getCost()) . "\n";
+echo "New Build Time: " . $Warp Drive Facility->getBuildTime() . " seconds\n";
+
 ?>
