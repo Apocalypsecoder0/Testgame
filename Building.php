@@ -185,14 +185,34 @@ echo "Upgraded Level: " ();
 echo "New Cost: " . json_encode($Warp Drive Facility->getCost()) . "\n";
 echo "New Build Time: " . $Warp Drive Facility->getBuildTime() . " seconds\n";
 
-echo "Upgraded Level: " ();
-    $Warp Drive Facility->getLevel() . "\n";
-echo "New Cost: " . json_encode($Warp Drive Facility->getCost()) . "\n";
-echo "New Build Time: " . $Warp Drive Facility->getBuildTime() . " seconds\n";
 
-echo "Upgraded Level: " ();
-    $Warp Drive Facility->getLevel() . "\n";
-echo "New Cost: " . json_encode($Warp Drive Facility->getCost()) . "\n";
-echo "New Build Time: " . $Warp Drive Facility->getBuildTime() . " seconds\n";
+echo Terraforming Station->upgrade();
+echo "Upgraded Level: " . $Terraforming Station->getLevel() . "\n";
+echo "New Cost: " . json_encode($Terraforming Station->getCost()) . "\n";
+echo "New Build Time: " . $Terraforming Station->getBuildTime() . " seconds\n";
 
+echo Defense Matrix->upgrade();
+echo "Upgraded Level: " . ($Defense Matrix ->getLevel() . "\n";
+echo "New Cost: " . json_encode($Defense Matrix->getCost()) . "\n";
+echo "New Build Time: " . $Defense Matrix->getBuildTime() . " seconds\n";
+
+echo Resource Synthesizer->upgrade();
+echo "Upgraded Level: " . $
+echo "New Cost: " . json_encode($Resource Synthesizer->getCost()) . "\n";
+echo "New Build Time: " . $Resource Synthesizer->getBuildTime() . " seconds\n";
+
+echo Cryo Storage->upgrade();
+echo "Upgraded Level: " . $
+ echo "New Cost: " . json_encode($Cryo Storage ->getCost()) . "\n";
+echo "New Build Time: " . $Cryo Storage->getBuildTime() . " seconds\n";
+
+echo Interstellar Dock->upgrade();
+echo "Upgraded Level: " . $
+echo "New Cost: " . json_encode($Interstellar Dock->getCost()) . "\n";
+echo "New Build Time: " . $Interstellar Dock->getBuildTime() . " seconds\n";
+
+echo Nano Assembly Plan->upgrade();
+echo "Upgraded Level: " . $
+echo "New Cost: " . json_encode($Nano Assembly->getCost()) . "\n";
+echo "New Build Time: " . $Nano Assembly->getBuildTime() . " seconds\n";
 ?>
