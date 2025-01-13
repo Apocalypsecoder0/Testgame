@@ -41,7 +41,25 @@ CREATE TABLE bug_reports (
     error_line INT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     status ENUM('open', 'resolved') DEFAULT 'open'
+);-- Create the database
+CREATE DATABASE IF NOT EXISTS empires_db;
+
+-- Use the database
+-- USE empires_db;
+
+-- Create the empires table
+CREATE TABLE IF NOT EXISTS empires (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    class VARCHAR(50) NOT NULL
 );
+
+-- Insert data into the empires table
+INSERT INTO empires (name, class) VALUES
+('Empire A', 'Class 1'),
+('Empire B', 'Class 2'),
+('Empire C', 'Class 3'),
+('Empire D', 'Class 4');
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
