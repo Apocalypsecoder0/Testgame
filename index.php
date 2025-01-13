@@ -6,7 +6,15 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+    header('Pragma:no-cache');
 
+    if ( !file_exists ("config.php")) {
+        include ("install.php");
+        die ();
+    }
+    
+    include ("home.php");
+?>
 $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("SELECT * FROM game_data WHERE user_id = ?");
 $stmt->execute([$user_id]);
