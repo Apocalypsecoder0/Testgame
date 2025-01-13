@@ -468,5 +468,19 @@ INSERT INTO buildings (name, level, cost, build_time) VALUES
 ('Resource Synthesizer', 1, '{"resource": 4000, "energy": 1700}', 420),
 ('Cryo Storage', 1, '{"resource": 4500, "energy": 1900}', 480),
 ('Interstellar Dock', 1, '{"resource": 5000, "energy": 2100}', 540),
-('Nano Assembly Plant', 1, '{"resource": 5500, "energy": 2300}', 600);
+('Nano Assembly Plant', 1, '{"resource": 5500, "energy": 2300}', 600);CREATE TABLE upgrades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    station_name VARCHAR(255) NOT NULL,
+    level INT NOT NULL,
+    cost JSON NOT NULL,
+    build_time INT NOT NULL
+);
+
+INSERT INTO upgrades (station_name, level, cost, build_time) VALUES
+('Terraforming Station', ?, ?, ?),
+('Defense Matrix', ?, ?, ?),
+('Resource Synthesizer', ?, ?, ?),
+('Cryo Storage', ?, ?, ?),
+('Interstellar Dock', ?, ?, ?),
+('Nano Assembly Plan', ?, ?, ?);
 };
