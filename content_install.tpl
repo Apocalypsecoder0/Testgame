@@ -10,7 +10,7 @@ require_once "db.php";
 
 $InstallError = "";
 
-// Структура таблиц.
+// Table structure.
 // -------------------------------------------------------------------------------------------------------------------------
 
 $tab_unis = array (          // Вселенные
@@ -28,7 +28,7 @@ $tabs = array (
 
 if ( $_SERVER['REQUEST_METHOD'] === "POST" ) {
 
-    // Удалить все таблицы и создать новые пустые.
+// Delete all tables and create new empty ones.
     dbconnect ($_POST["mdb_host"], $_POST["mdb_user"], $_POST["mdb_pass"], $_POST["mdb_name"]);
     dbquery ("SET NAMES 'utf8';");
     dbquery ("SET CHARACTER SET 'utf8';");
@@ -52,7 +52,7 @@ if ( $_SERVER['REQUEST_METHOD'] === "POST" ) {
         dbquery ($query, TRUE);
     }
 
-    // Сохранить файл конфигурации.
+    // Save the configuration file.
     $file = fopen ("config.php", "wb");
     if ($file == FALSE) $InstallError = loca('INSTALL_ERROR1');
     else
