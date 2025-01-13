@@ -218,7 +218,30 @@ CREATE TABLE player_technologies (
     technology_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (technology_id) REFERENCES technologies(id)
+);CREATE TABLE New_Technologies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category VARCHAR(50),
+    technology VARCHAR(100),
+    description TEXT
 );
+
+INSERT INTO New_Technologies (category, technology, description) VALUES
+('Basic Research', 'Energy Technology', 'Innovations in energy storage and efficiency.'),
+('Basic Research', 'Laser Technology', 'Applications in data transmission and security.'),
+('Basic Research', 'Ion Technology', 'Potential for advanced propulsion systems.'),
+('Basic Research', 'Hyperspace Technology', 'Theoretical frameworks for faster-than-light travel.'),
+('Basic Research', 'Plasma Technology', 'Uses in energy generation and materials science.'),
+('Drive Research', 'Combustion Drive', 'Traditional propulsion systems for vehicles.'),
+('Drive Research', 'Impulse Drive', 'Concepts for near-light-speed travel.'),
+('Drive Research', 'Hyperspace Drive', 'Theoretical technologies for interstellar travel.'),
+('Advanced Research', 'Espionage Technology', 'Tools for data gathering and cybersecurity.'),
+('Advanced Research', 'Computer Technology', 'Advances in processing power and AI.'),
+('Advanced Research', 'Astrophysics', 'Research on celestial phenomena and their implications.'),
+('Advanced Research', 'Intergalactic Research Network', 'Collaborative platforms for space research.'),
+('Advanced Research', 'Graviton Technology', 'Theoretical exploration of gravity manipulation.'),
+('Combat Research', 'Weapons Technology', 'Development of advanced weapon systems.'),
+('Combat Research', 'Shielding Technology', 'Innovations in protective measures.'),
+('Combat Research', 'Armour Technology', 'Enhancements in materials for defense.');
 INSERT INTO technologies (name, description, prerequisites) VALUES
 ('Basic Farming', 'Unlocks basic farming techniques.', ''),
 ('Advanced Farming', 'Unlocks advanced farming techniques.', '1'),  -- Prerequisite: Basic Farming
