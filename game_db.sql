@@ -61,7 +61,40 @@ CREATE TABLE IF NOT EXISTS empires (
     name VARCHAR(255) NOT NULL,
     class VARCHAR(50) NOT NULL
 );
+CREATE DATABASE crafting_system;
 
+USE crafting_system;
+
+-- Table for available resources
+CREATE TABLE resources (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    resource_name VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL
+);
+
+-- Table for crafting recipes
+CREATE TABLE crafting_recipes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    item_name VARCHAR(50) NOT NULL,
+    resource_name VARCHAR(50) NOT NULL,
+    amount INT NOT NULL
+);
+
+-- Insert sample resources
+INSERT INTO resources (resource_name, quantity) VALUES
+('wood', 10),
+('stone', 5),
+('metal', 4);
+
+-- Insert sample crafting recipes
+INSERT INTO crafting_recipes (item_name, resource_name, amount) VALUES
+('wooden_sword', 'wood', 3),
+('wooden_sword', 'stone', 1),
+('stone_pickaxe', 'wood', 2),
+('stone_pickaxe', 'stone', 3),
+('stone_pickaxe', 'metal', 1),
+('metal_shield', 'wood', 1),
+('metal_shield', 'metal', 3);
 -- Insert data into the empires table
 INSERT INTO empires (name, class) VALUES
 ('Empire A', 'Class 1'),
